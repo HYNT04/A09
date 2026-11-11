@@ -2,6 +2,9 @@
 :root {
 	--accent-color: #800000;  /* could also be coded #800 */
 	--gradient-color: #f6bb73;
+	--light-color: #dcef71;
+	--dark-color: #3f177b;
+	--mid-color: antiqueWhite;
 }
 
 /* reset */
@@ -26,6 +29,8 @@ h1, h2, h3, p, ul {
 a:hover, a:focus{
 	font-style: italic;
 	color: var(--accent-color);
+	background-color: var(--mid-color);
+	color: var(--dark-color);
 }
 h1 {
 	font-size: 150%;
@@ -38,7 +43,9 @@ h3 {
 	font-size: 105%;
 }
 ul {
-	margin-left: 2em;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
 }
 
 /* the styles for the header */
@@ -125,4 +132,56 @@ footer {
 }
 .large {
 	font-size: 125%;
+}
+.menu{
+	display: flex;
+	li{
+		flex-basis: 20%;
+		text-align: center;
+	}
+}
+.menu > li:first-child a{
+	margin-left: 0;
+}
+.menu > li:last-child a{
+	margin-right: 0;
+}
+.menu:has(.submenu){
+	position: relative;
+	small{
+		margin-left: 5px;
+	}
+	:hover > .submenu{
+		display: block;
+	}
+	
+}
+.submenu{
+	display: none;
+	position: absolute;
+	
+	background-color: var(--accent-color);
+	color: var(--light-color);
+	li{
+		padding: 5px 10px;
+	}
+	li:hover{
+		background-color: var(--mid-color);
+	}
+	& > li a{
+		margin: 0 2px 2px;
+	}
+}
+.navbar{
+	background-color: var(--accent-color);
+	a{
+		padding: 1em;
+		display: block;
+		text-decoration: none;
+		color: var(--light-color);
+		margin-top: 0px;
+		margin-left: 1px;
+		margin-right: 1px;
+		margin-bottom: 2px;
+	}
 }
